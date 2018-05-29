@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>D3 Network</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
-<h1>Hello, World</h1>
+<h1>Network Visualization</h1>
+<a href="wikipedia.html">Wikipedia Links</a>
 <svg width="960" height="600"></svg>
 
 <script>
@@ -22,7 +23,7 @@
         .force("link", d3.forceLink().id(function(d) { return d.id; }))
         .force("charge", d3.forceManyBody())
         .force("center", d3.forceCenter(width / 2, height / 2));
-    d3.json("miserables.json").then(function(graph) {
+    d3.json("data/miserables.json").then(function(graph) {
         var link = svg.append("g")
             .attr("class", "links")
             .selectAll("line")
